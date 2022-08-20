@@ -3,6 +3,8 @@
   --main-color-bb: #0B1D26bb;
   --main-color-00: #0B1D2600;
   --accent: #FBD784;
+  overflow-y: scroll;
+
 }
 *, *::before, *::after {
   margin: 0;
@@ -24,7 +26,7 @@ body {
 }
 #app {
   width: 100%;
-  min-width: 1150px;
+  /* min-width: 1150px; */
   height: 100vh;
 }
 .hero img, .guides img {
@@ -69,12 +71,12 @@ a:focus {
 
 
 header {
-  /* width: 100%;
+  width: 100%;
   height: 15vh;
   display: flex;
   justify-content: center;
   position: absolute;
-  top: 0; */
+  top: 0;
   z-index: 10000;
   user-select: none;
   transition: top 200ms linear;
@@ -92,7 +94,8 @@ header {
   font-weight: 700;
 }
 header nav {
-  width: max(13rem, 16%); /* Thanks Kevin Powell for min, max and clamp, it has helped me improve by over 1% in my web design */
+  width: max(13rem, 16%); 
+  /* Thanks Kevin Powell for min, max and clamp, it has helped me improve by over 1% in my web design */
   display: flex;
   justify-content: space-between;
   font-size: clamp(.7rem, .9vw, 2rem);
@@ -101,43 +104,6 @@ header nav {
 .nav_link:hover,
 .nav_link:focus {
   color: var(--accent);
-}
-.account {
-  display: flex;
-  align-items: center;
-}
-.account_icon svg {
-  width: clamp(.7rem + 6px, 1vw, 2rem);
-}
-.account_text {
-  margin-top: -4%;
-  margin-left: 8%;
-  font-size: clamp(.7rem, .9vw, 2rem);
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-.account:hover .account_text,
-.account:focus .account_text {
-  color: var(--accent);
-}
-.account:hover .account_icon svg path,
-.account:focus .account_icon svg path {
-  fill: var(--accent);
-}
-.account_text::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 0%;
-  height: 1px;
-  background: #fff;
-  transition: all 200ms ease-in-out;
-}
-.account:hover .account_text::before,
-.account:focus .account_text::before {
-  width: 100%;
-  background: var(--accent);
 }
 
 
@@ -150,8 +116,8 @@ header nav {
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  /* top: 30%; */
-  /* left: 4.165%; */
+  top: 30%;
+  left: 4.165%;
   transform-origin: bottom left;
   transform: rotateZ(90deg);
   user-select: none;
@@ -178,6 +144,15 @@ header nav {
 .social-media_icon:hover svg path,
 .social-media_icon:focus svg path {
   fill: var(--accent);
+}
+@media screen and (max-width: 768px) {
+  .social-media {
+    /* top: 35rem; */
+    /* position: absolute; */
+    top: 70vh;
+    left: 2%;
+  }
+
 }
 
 
@@ -296,15 +271,74 @@ header nav {
   top: 45%;
   z-index: 2;
 }
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+}
+.skills__skill{
+  padding: 0.5rem 1.2rem;
+  margin-bottom:0.8rem;
+  margin-right:0.8rem;
+  
+  /* margin-bottom: 1.5rem; */
+  /* margin-right: 1.5rem; */
+  font-size: 0.8rem;
+  background: rgba(153,153,153,.2);
+  border-radius: 5px;
+  font-weight: 600;
+  max-width: fit-content;
+  /* color: #666; */
+  color: #fff;
+}
+@media screen and (max-width: 768px) {
+  .hero{
+    height: 120vh;
+  }
+  .bg-layer-1 {
+    height: 121%;
+  }
+  .bg-layer-1>img {
+    /* height: 121%; */
+    width: 400%;
+  }
+  .bg-layer-2 img {
+    width: 180%;
+  }
+  .bg-layer-2 {
+    height: 100%;
+    background: linear-gradient(145deg, var(--main-color-bb), var(--main-color-00));
+  }
+  .bg-layer-3 > img {
+    width: 400%;
+    top: 12% !important;
+  }
+  .bg-layer-3 {
+    height: 118.5%;
+    top: 27%;
+    z-index: 1;
+  }
+  .bg-layer-4 {
+    height: 77.17%;
+    /* top: 45%; */
+    width: 200%;
+    top: 60%;
+    left: -17%;
+    /* top: 43%; */
+    z-index: 2;
+  }
+
+}
 .hero_description_wrapper {
   height: 100vh;
   width: 100vw;
   display: grid;
   place-items: center;
-  z-index: 10000;
+  /* z-index: 10000; */
+  margin-top: -4rem
 }
 .hero_description {
   max-height: 14rem;
+  width: 50vw;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -315,14 +349,28 @@ header nav {
 }
 .hero_description h1 {
   font-family: initial;
-  margin:1rem 0;
+  /* margin:1rem 0; */
+  margin-top:1rem;
   font-size: 4em;
   font-size: min(9vh, 4em);
   text-transform: capitalize;
 }
+.hero_description h2 {
+  font-family: initial;
+  /* margin:1rem 0; */
+  margin-bottom:1rem;
+  font-size: 2em;
+  font-size: min(9vh, 2em);
+  text-transform: capitalize;
+}
 @media screen and (max-width: 768px) {
+  .hero_description_wrapper {
+    margin-top: 0rem
+  }
   .hero_description {
-    margin-bottom: 12rem;
+    /* margin-bottom: 12rem; */
+    margin-bottom: 18rem;
+    width: inherit;
     padding:0 1.5rem;
     margin-left: 0.5rem;
   }
@@ -370,7 +418,7 @@ header nav {
 
 .guide {
   width: 100%;
-  height: 524px;
+  /* height: 524px; */
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -383,15 +431,43 @@ header nav {
 .guide_image {
   order: 1;
 }
+.guide_description_1 {
+  margin-top: 4rem;
+}
 .guide_description {
+  /* margin-top: 4rem; */
   width: 53.5%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  padding: 6em 0 6em 6em;
+  /* padding: 6em 0 6em 6em; */
+  padding: 5rem 0 5rem 4rem;
   z-index: 1;
   position: relative;
 }
+.project_section{
+  padding-bottom: 2rem;
+  margin-bottom: 4rem;
+}
+.project_section div p {
+  margin-top: 3rem;
+}
+/* .project_heading_wrapper{
+  margin-bottom: 7rem;
+  position: relative;
+}
+.project_heading_post_text{
+  position: absolute;
+}
+.project_heading{
+  top: 3.5%;
+  left: 0;
+  font-size: 10em;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  color: #fff2;
+  z-index: -1;
+} */
 .guide_number {
   position: absolute;
   top: 3.5%;
@@ -412,6 +488,67 @@ header nav {
   color: #fff2;
   z-index: -1;
 }
+
+.guide_description h1 {
+  font-family: initial;
+  font-size: 3em;
+  font-weight: 500;
+}
+.guide_text {
+  /* font-size: .75rem; */
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.9em;
+}
+@media screen and (max-width: 768px) {
+  .guides_content{
+    margin:2rem 1rem;
+  }
+  .guide{
+    flex-direction: column;
+    margin: 5rem 0;
+  }
+  .guide_number_1 {
+    /* top: 3.5%; */
+    left: -2.5rem;
+    font-size: 5rem;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    color: #fff2;
+    z-index: -1;
+  }
+  .hero_pre-text {
+    font-size: 0.8rem !important;
+    font-weight: 600;
+    letter-spacing: .37em;
+  }
+  .guide_description{
+    padding: 4rem 0.2rem;
+    padding-top:10rem;
+    width: 100%;
+  }
+  .guide_description h1{
+    margin: 1.2rem 0;
+  }
+  .guide_text{
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+  }
+  .more_text {
+    font-size: 1rem !important;
+    text-transform: uppercase;
+    
+  }
+  .more_icon{
+    display: grid;
+    place-items: center;
+    margin-top: 0.2rem !important;
+  }
+}
+
+
 .hero_pre-text {
   color: var(--accent);
   text-transform: uppercase;
@@ -430,16 +567,6 @@ header nav {
   /* @media (min-width: 768px) {
     width: 4em;
   } */
-}
-.guide_description h1 {
-  font-family: initial;
-  font-size: 3em;
-  font-weight: 500;
-}
-.guide_text {
-  font-size: .75rem;
-  font-weight: 600;
-  line-height: 1.9em;
 }
 .more {
   display: flex;
