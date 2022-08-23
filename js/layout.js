@@ -49,15 +49,16 @@ const heroBG4 = document.querySelector(".bg-layer-4 img");
 
 window.addEventListener("scroll", ParallaxScrolling);
 document.body.addEventListener("touchmove", ParallaxScrolling);
-document.body.addEventListener("touchmove", () => {
-  console.log("touchmove got triggerd ");
-});
-window.onscroll = (event) => {
-  console.log("touchmove got triggerd windows");
-};
-document.getElementById("app").addEventListener("scroll", () => {
-  console.log("touchmove got triggerd app");
-});
+// document.body.addEventListener("touchmove", () => {
+//   console.log("touchmove got triggerd ");
+// });
+// window.onscroll = (event) => {
+//   console.log("touchmove got triggerd windows");
+// };
+// document.getElementById("app").addEventListener("scroll", () => {
+//   console.log("touchmove got triggerd app");
+// });
+
 function ParallaxScrolling() {
   let value = window.scrollY;
   console.log("value", value);

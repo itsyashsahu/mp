@@ -4,7 +4,6 @@
   --main-color-00: #0B1D2600;
   --accent: #FBD784;
   overflow-y: scroll;
-
 }
 *, *::before, *::after {
   margin: 0;
@@ -44,11 +43,21 @@ a:focus {
 }
 .nav_link,
 .footer_link {
+  color:white;
+  font-size: 14px;
   position: relative;
   display: flex;
   justify-content: center;
   transition: all 300ms ease-in-out;
 }
+
+@media screen and (max-width: 768px) {
+  .nav_link,
+  .footer_link {
+    font-size: 10px;
+  }
+}
+
 .nav_link::before,
 .footer_link::before {
   content: "";
@@ -88,13 +97,22 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+@media screen and (max-width: 768px) {
+  .header_content {
+    width: 86.67%;
+    height: 48%;
+  }
+
+}
 .logo {
   font-size: 1.5rem;
   font-family: initial;
+  color: white;
   font-weight: 700;
 }
 header nav {
-  width: max(13rem, 16%); 
+  /* width: max(15rem, 21%);  */
+  width: max(12rem, 19%); 
   /* Thanks Kevin Powell for min, max and clamp, it has helped me improve by over 1% in my web design */
   display: flex;
   justify-content: space-between;
@@ -110,7 +128,7 @@ header nav {
 
 
 .social-media {
-  width: min(11%, 7.7rem);
+  width: min(38%, 10.7rem);
   min-width: 7rem;
   display: flex;
   justify-content: space-between;
@@ -291,6 +309,21 @@ header nav {
   color: #fff;
 }
 @media screen and (max-width: 768px) {
+  .skills__skill{
+    padding: 0.25rem 0.5rem;
+    margin-bottom:0.8rem;
+    margin-right:0.8rem;
+    
+    /* margin-bottom: 1.5rem; */
+    /* margin-right: 1.5rem; */
+    font-size: 0.7rem;
+    background: rgba(153,153,153,.2);
+    border-radius: 5px;
+    font-weight: 600;
+    max-width: fit-content;
+    /* color: #666; */
+    color: #fff;
+  }
   .hero{
     height: 120vh;
   }
@@ -353,7 +386,7 @@ header nav {
   margin-top:1rem;
   font-size: 4em;
   font-size: min(9vh, 4em);
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 }
 .hero_description h2 {
   font-family: initial;
@@ -361,7 +394,7 @@ header nav {
   margin-bottom:1rem;
   font-size: 2em;
   font-size: min(9vh, 2em);
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 }
 @media screen and (max-width: 768px) {
   .hero_description_wrapper {
@@ -436,11 +469,11 @@ header nav {
 }
 .guide_description {
   /* margin-top: 4rem; */
+  /* padding: 6em 0 6em 6em; */
   width: 53.5%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  /* padding: 6em 0 6em 6em; */
   padding: 5rem 0 5rem 4rem;
   z-index: 1;
   position: relative;
@@ -497,19 +530,43 @@ header nav {
 .guide_text {
   /* font-size: .75rem; */
   font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.9em;
+  font-weight: 500;
+  line-height: 2em;
+  letter-spacing: 0.05rem;
 }
 @media screen and (max-width: 768px) {
+  .project_section{
+    margin-bottom: 0;
+    margin-top: 2rem;
+  }
+  .project_section >:first-child{
+    /* padding-top: 6rem; */
+  }
+  .project_section div p {
+    margin-top: -4rem;
+    margin-left: 2rem;
+  }
   .guides_content{
     margin:2rem 1rem;
   }
   .guide{
     flex-direction: column;
-    margin: 5rem 0;
+    /* margin: 2rem 0; */
+    margin-bottom: 0px;
   }
-  .guide_number_1 {
-    /* top: 3.5%; */
+  .guide_image{
+    width: 100% !important;
+    /* margin-bottom: -4rem; */
+  }
+  .guide_image_reorder{
+    flex-direction: column-reverse;
+    margin: 7rem 0;
+  }
+  .guide_number{
+    top: 10.5%;
+  }
+  .guide_number_1,
+  .guide_number {
     left: -2.5rem;
     font-size: 5rem;
     font-family: 'Manrope', sans-serif;
@@ -524,11 +581,16 @@ header nav {
   }
   .guide_description{
     padding: 4rem 0.2rem;
-    padding-top:10rem;
+    padding-top:8rem;
     width: 100%;
+  }
+  .guide_description_contact{
+    padding-bottom: 0;
+
   }
   .guide_description h1{
     margin: 1.2rem 0;
+    font-size: 2rem;
   }
   .guide_text{
     margin-top: 1.5rem;
@@ -617,7 +679,8 @@ header nav {
 
 footer {
   height: max(41.5%, 18rem);
-  font-size: .8rem;
+  /* font-size: .8rem; */
+  font-size: 14px;
   padding-bottom: 4rem;
 }
 .footer_content {
@@ -658,6 +721,9 @@ footer {
   font-weight: 600;
   color: var(--accent);
 }
+.footer_mntn-links > *{
+  margin-bottom: 4px;
+}
 .footer_blog-links {
   height: 89%;
   display: flex;
@@ -683,14 +749,27 @@ footer {
   text-decoration: .5px solid underline;
 }
 
-
-
+@media screen and (max-width: 768px) {
+  .footer_content{
+    flex-direction: column-reverse;
+  }
+  .footer_description{
+    width: 100%;
+  }
+  .footer_description > *{
+    margin-left: auto;
+    text-align: right;
+  }
+  .footer_links{
+    margin-bottom: 2rem;
+  }
+}
 
 
 
 
 
 .container {
-  width: 76.15%;
+  width: 80.15%;
   margin: 0 auto;
 }
