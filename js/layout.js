@@ -9,18 +9,6 @@ nav.forEach((e, i) =>
   })
 );
 
-// Code to update 'active' class on the side navbar when the page loads or is scrolled
-// ["load", "scroll"].forEach((event) => {
-//   document.addEventListener(event, () => {
-//     pagePart.forEach((e, i) => {
-//       if (isVisible(e)) {
-//         nav.forEach((e) => e.classList.remove("active"));
-//         nav[i].classList.add("active");
-//       }
-//     });
-//   });
-// });
-
 // Code to Navigate page by clicking on the number of the section of page
 nav.forEach((e, i) =>
   window.addEventListener("keydown", (key) => {

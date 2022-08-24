@@ -128,7 +128,8 @@ header nav {
 
 
 .social-media {
-  width: min(38%, 10.7rem);
+  /* width: min(38%, 10.7rem); */
+  width: min(48%, 13.7rem);
   min-width: 7rem;
   display: flex;
   justify-content: space-between;
@@ -464,6 +465,9 @@ header nav {
 .guide_image {
   order: 1;
 }
+.guide_image_mockup{
+  width: 45% !important;
+}
 .guide_description_1 {
   margin-top: 4rem;
 }
@@ -556,7 +560,7 @@ header nav {
   }
   .guide_image{
     width: 100% !important;
-    /* margin-bottom: -4rem; */
+    margin-bottom: -7rem;
   }
   .guide_image_reorder{
     flex-direction: column-reverse;
@@ -580,7 +584,7 @@ header nav {
     letter-spacing: .37em;
   }
   .guide_description{
-    padding: 4rem 0.2rem;
+    padding: 0;
     padding-top:8rem;
     width: 100%;
   }
@@ -632,6 +636,7 @@ header nav {
 }
 .more {
   display: flex;
+  
 }
 .more_text {
   font-size: .7rem;
@@ -674,6 +679,11 @@ header nav {
   object-fit: cover;
 }
 
+.project_links_wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
 
 
 
@@ -682,6 +692,12 @@ footer {
   /* font-size: .8rem; */
   font-size: 14px;
   padding-bottom: 4rem;
+}
+@media screen and (max-width: 768px) {
+  footer{
+    padding-bottom: 15rem;
+    padding-top: 15rem;
+  }
 }
 .footer_content {
   height: 100%;
